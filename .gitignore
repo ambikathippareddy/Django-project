@@ -1,4 +1,4 @@
-
+#link to  get the ignore file :gitignore.io
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
@@ -160,5 +160,6 @@ Thumbs.db
 # profiling data
 .prof
 
+/media/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
