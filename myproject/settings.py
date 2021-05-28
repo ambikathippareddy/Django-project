@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%bp@x-(9vh)5+!5=y4ibgd&s84u4$)_p&ws=z&22b$9ct0*=1+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 LOGIN_REDIRECT_URL='dashboard'
 
@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'django.contrib.humanize',
-    
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -164,7 +163,6 @@ MESSAGE_TAGS = {
 }
 
 
-SITE_ID=1
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
