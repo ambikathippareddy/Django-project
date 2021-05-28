@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%bp@x-(9vh)5+!5=y4ibgd&s84u4$)_p&ws=z&22b$9ct0*=1+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -58,7 +59,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    #'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -92,16 +94,18 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',
-        'USER':'postgres',
-        'PASSWORD':'1234',
-        'HOST':'localhost',
-    }
-}
+#DATABASES = {
+    #'default': {
+      #  'ENGINE': 'django.db.backends.postgresql',
+       # 'NAME': 'mydb',
+       # 'USER':'postgres',
+       # 'PASSWORD':'1234',
+       # 'HOST':'localhost',
+   # }
+#}
 
+
+DATABASES={'default':dj_database_url.config(default='postgres://postgres:1234@localhost/mydb')}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -164,6 +168,8 @@ MESSAGE_TAGS = {
 
 
 
+SITE_ID=1
+
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_HOST_USER='ambika.thipareddy@gmail.com'
@@ -171,3 +177,5 @@ EMAIL_HOST_PASSWORD=' '
 EMAIL_USE_TLS=True
 
 
+#whitenoice static seeting
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
